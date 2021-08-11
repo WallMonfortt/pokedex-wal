@@ -1,0 +1,59 @@
+* {
+  margin: 0px;
+}
+
+.navMain{
+  height: 100px;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 100px;
+  padding: 10px;
+}
+
+.hdr{
+  top: 0;
+}
+
+.gridPers{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  
+}
+
+.pokes{
+  border:  solid black 1px;
+  height: 200px;
+  margin: 0px;
+  width: 160px;
+}
+
+.pkCard{
+  justify-content: center;
+  align-items: center;
+  word-break:break-all;
+}
+
+.id{
+  color: black;
+}
+
+.types{
+  color:tan;
+}
+
+.points{
+  margin: 0px;
+  font-size: small;
+  color: skyblue;
+}
+
+.sel{
+  text-align: right;
+  margin-right: 20px;
+}
+
