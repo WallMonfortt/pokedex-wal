@@ -11,21 +11,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Pokedex = ( {pokemons, page, setPage, total, setTotal, types, setCurrentType} ) => {
+export const Pokedex = ( {pokemons, page, setPage, total, setTotal, types, setCurrentType, totalPokemons} ) => {
 
-  const totalPokes = 1118;
 
-  const [totalPages, setTotalPages] = useState( Math.ceil(totalPokes / total))
-  // const [currentType, setCurrentType] = useState('All')
+  const [totalPages, setTotalPages] = useState( Math.ceil(totalPokemons / total))
 
   useEffect(() => {
-    setTotalPages(Math.ceil(totalPokes / total))
-  }, [total])
+    setTotalPages(Math.ceil(totalPokemons / total))
+  }, [total,totalPokemons])
 
   const classes = useStyles();
   const handleChange = ( e, value) => {
     setPage(value - 1)
-    // console.log(e, value);
   };
 
   const onHandleFilter = (e) =>{

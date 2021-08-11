@@ -8,6 +8,8 @@ import './styles/mainStyle.css'
 const App = () => {
 
   const [pokemons, setPokemons] = useState([])
+  const [pokemonsType, setPokemonsType] = useState([])
+  const [totalPokemons, setTotalPokemons] = useState(0)
   const [total, setTotal] = useState(4)
   const [page, setPage] = useState(0)
   const [loadig, setLoadig] = useState(true)
@@ -16,37 +18,42 @@ const App = () => {
   const [currentType, setCurrentType] = useState('')
 
   useEffect(() => {
-    const getPokemons = async() =>{
-      const data = await getAllPokes(total, total * page)
-      const promises = data.results.map(async (pokemon) =>{
-        return await getPokeData(pokemon.url)
-      })
-      const results = await Promise.all(promises)
-      setPokemons(results)
-      setLoadig(false)
+    if (currentType === '') {
+      const getPokemons = async() =>{
+        const data = await getAllPokes(total, total * page)
+        setTotalPokemons(data.count)
+        const promises = data.results.map(async (pokemon) =>{
+          return await getPokeData(pokemon.url)
+        })
+        const results = await Promise.all(promises)
+        setPokemons(results)
+        setLoadig(false)
+      }
+      getPokemons();
+    }else{
+      const getFilterPokemons = async() =>{
+        const data = await getPokeTypes(currentType)
+        const promises = data.pokemon.map( async value => {
+          return await getPokeData(value.pokemon.url)
+        })
+        const res = await Promise.all(promises)
+        setPokemonsType(res);
+        setTotalPokemons(res.length)
+      }
+      getFilterPokemons();
+      
     }
-    getPokemons();
-  }, [page, total])
+  }, [page, total, currentType])
 
   useEffect(() => {
-    const getFilterPokemons = async() =>{
-      const data = await getPokeTypes(currentType)
-      const promises = data.pokemon.map(async (pokemon) =>{
-        return await getPokeTypes(pokemon.url)
-      })
-      const results = await Promise.all(promises)
-      // setPokemons(results);
-      console.log(results);
-    }
-    getFilterPokemons();
-  }, [currentType])
+    setPokemons(pokemonsType.slice(page * total, parseInt((page * total )) + parseInt(total)))
+  }, [pokemonsType, page, total])
 
   useEffect(() => {
     const getAllTypes = async() =>{
       const dataTypes = await getPokeTypes()
       const eachType = dataTypes.results.map( value => value.name )
       setTypes(eachType)
-      console.log(eachType);
     }
     getAllTypes()
 
@@ -68,6 +75,7 @@ const App = () => {
         setTotal={setTotal}
         types={types}
         setCurrentType={setCurrentType}
+        totalPokemons={totalPokemons}
       />}
       </div>
     </div>
