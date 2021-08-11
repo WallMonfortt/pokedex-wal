@@ -25,3 +25,13 @@ export const getPokeData = async(url) => {
   });
   return ( res.data )
 }
+
+export const getPokeTypes = async( type = '' ) => {
+  const res = await axios({
+    method:"GET",
+    url:`/${type}`,
+    baseURL:`https://pokeapi.co/api/v2/type`
+  });
+  return ( res.data )
+}
+

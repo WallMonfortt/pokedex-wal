@@ -11,11 +11,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Pokedex = ( {pokemons, page, setPage, total, setTotal} ) => {
+export const Pokedex = ( {pokemons, page, setPage, total, setTotal, types, setCurrentType} ) => {
 
   const totalPokes = 1118;
 
   const [totalPages, setTotalPages] = useState( Math.ceil(totalPokes / total))
+  // const [currentType, setCurrentType] = useState('All')
 
   useEffect(() => {
     setTotalPages(Math.ceil(totalPokes / total))
@@ -24,15 +25,20 @@ export const Pokedex = ( {pokemons, page, setPage, total, setTotal} ) => {
   const classes = useStyles();
   const handleChange = ( e, value) => {
     setPage(value - 1)
-    console.log(e, value);
+    // console.log(e, value);
   };
+
+  const onHandleFilter = (e) =>{
+    setCurrentType(e)
+    console.log(e);
+  }
 
   const onSelect =(e) =>{
     setTotal(e)
   }
 
   const list = pokemons.map((poke, i) => 
-  <Pokemon pokemon={poke} key={poke.name}/>)
+  <Pokemon pokemon={poke} key={poke.name} />)
 
   // console.log(pokemons);
   return (
@@ -49,7 +55,14 @@ export const Pokedex = ( {pokemons, page, setPage, total, setTotal} ) => {
         </div>
       </div>
 
-      <div className="position-relative">
+      <div className=" labels">
+        <div className="mb-2">
+          #Pokemon type:
+          <select className="ms-2" defaultValue={"all"} onChange={(e) => onHandleFilter(e.target.value)}>
+          <option value="">All</option>
+          {types.map(type => <option key={type} value={type}>{type}</option>)}
+        </select>
+        </div>
         <div className="mb-2 sel">
           #Pokemons:
           <select className="ms-2" defaultValue={4} onChange={(e) => onSelect(e.target.value)}>

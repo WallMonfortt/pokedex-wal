@@ -6,7 +6,6 @@ export const Pokemon = ( {pokemon} ) => {
       key={stat.stat.name} 
       className="points">{stat.stat.name} : <span className="id">{stat.base_stat}</span>
     </p>)
-  // console.log(pokemon);
   return (
   <div className="card text-white bg-danger">
     <div className="card-body">

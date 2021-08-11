@@ -18,6 +18,11 @@
   top: 0;
 }
 
+.labels{
+  display: flex;
+  place-content: space-around;
+}
+
 .gridPers{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -29,7 +34,7 @@
   border:  solid black 1px;
   height: 200px;
   margin: 0px;
-  width: 160px;
+  width: 230px;
 }
 
 .pkCard{
