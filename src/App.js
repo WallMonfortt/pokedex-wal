@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { NavBar } from './components/NavBar'
 import { Pokedex } from './components/Pokedex'
 import SearchBar from './components/SearchBar'
 import { getAllPokes, getPokeData, getPokeTypes } from './helpers/getPokes'
@@ -61,9 +60,7 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <NavBar />
-      <div>
+    <div>      
       <SearchBar />
       {loadig 
       ? (<div>Cargando Pokemones</div>)
@@ -77,7 +74,7 @@ const App = () => {
         setCurrentType={setCurrentType}
         totalPokemons={totalPokemons}
       />}
-      </div>
+      
     </div>
   )
 }

@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const Pokedex = ( {pokemons, page, setPage, total, setTotal, types, setCurrentType, totalPokemons} ) => {
 
-
   const [totalPages, setTotalPages] = useState( Math.ceil(totalPokemons / total))
 
   useEffect(() => {
@@ -27,7 +26,6 @@ export const Pokedex = ( {pokemons, page, setPage, total, setTotal, types, setCu
 
   const onHandleFilter = (e) =>{
     setCurrentType(e)
-    console.log(e);
   }
 
   const onSelect =(e) =>{
@@ -37,7 +35,6 @@ export const Pokedex = ( {pokemons, page, setPage, total, setTotal, types, setCu
   const list = pokemons.map((poke, i) => 
   <Pokemon pokemon={poke} key={poke.name} />)
 
-  // console.log(pokemons);
   return (
     <div className="container-lg">
       <div className="header">

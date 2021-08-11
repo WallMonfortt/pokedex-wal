@@ -12,7 +12,6 @@ const SearchBar = () => {
   const handleSearch = async() =>{
     const data = await getPokes(search);
     setPokemon(data)
-    console.log(data);
   }
 
 

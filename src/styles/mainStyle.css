@@ -6,6 +6,11 @@
   height: 100px;
 }
 
+.trainer{
+  margin-left: 20px;
+  color: blue;
+}
+
 .header{
   display: flex;
   flex-direction: row;
