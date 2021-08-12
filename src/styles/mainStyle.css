@@ -174,3 +174,16 @@
     margin: 1em 2em;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .navMain-pokeball {
+    width: 8vh;
+    height: 8vh;
+    margin: 2.5em 2em;
+  }
+
+  .navMain-api {
+    width: 10vh;
+    margin: 2.5em 2em;
+  }
+}

@@ -38,7 +38,7 @@ export const NavBar = () => {
       <img 
       src={imgUrl}
       alt='logo'
-      className="position-absolute mt-4 start-50 translate-middle-x"
+      className="position-absolute mt-4 start-50 translate-middle-x navMain-api"
       width="160px"
       />
 

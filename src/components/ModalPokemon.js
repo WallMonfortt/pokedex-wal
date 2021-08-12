@@ -35,7 +35,6 @@ export default function ModalPokemon({open, setOpen, pokemon}) {
   const classes = useStyles();
  
   const [modalStyle] = useState(getModalStyle);
-  console.log(open);
 
   const handleClose = () => {
     setOpen(false);
