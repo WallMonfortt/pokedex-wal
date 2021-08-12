@@ -25,8 +25,8 @@ const SearchBar = () => {
 
   return (
     <div className="container-lg" >
-      <div className="input-group flex-nowrap mt-5">
-      <span className="input-group-text" id="addon-wrapping">name / #</span>
+      <div className="input-group flex-nowrap search-bar">
+      <span className="input-group-text label-input" id="addon-wrapping">name / #</span>
         <input 
           className="form-control"
           placeholder="Search Pokemon by Name or Id..."
@@ -34,8 +34,8 @@ const SearchBar = () => {
           onChange={onChange}
         />
         <button 
-          className="btn btn-outline-secondary" 
-          type="button" 
+          className="btn btn-btn-outline-success" 
+          type="submit"
           id="button-addon2"
           onClick={handleSearch}
           >
