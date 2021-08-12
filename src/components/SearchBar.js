@@ -42,11 +42,13 @@ const SearchBar = () => {
         </button>
       </div>
 
-      <ModalPokemon 
+      {pokemon && 
+        <ModalPokemon 
         open={open} 
         setOpen={setOpen} 
         pokemon={pokemon}
-      />
+        />
+      }
     </div>
   )
 }
