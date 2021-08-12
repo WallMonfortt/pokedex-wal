@@ -1,6 +1,17 @@
 * {
   margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body{
+  /* background-color: black; */
+}
+
+#root{
+  /* background-color: black; */
+}
+
 
 .navMain{
   height: 100px;
@@ -67,3 +78,37 @@
   margin-right: 20px;
 }
 
+.login-container{
+  height: 100vh;
+  background-image: url(../img/pokemon-background.jpg);
+  background-size: cover;
+}
+
+.pokeball{
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.welcome{
+  text-align: center;
+}
+
+.welcome img{
+  width: 80vh;
+}
+
+.welcome input{
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.logos{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  /* background-color: black; */
+  bottom: 0;
+  right: 0;
+  margin: 10px 20px;
+}

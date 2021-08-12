@@ -29,7 +29,8 @@ const SearchBar = () => {
       <span className="input-group-text" id="addon-wrapping">name / #</span>
         <input 
           className="form-control"
-          placeholder="Search Pokemon..."
+          placeholder="Search Pokemon by Name or Id..."
+          autoComplete="none"
           onChange={onChange}
         />
         <button 
