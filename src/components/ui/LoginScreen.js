@@ -5,6 +5,7 @@ import WM2 from '../../img/WM2.png'
 import WMonf from '../../img/WMonf.png'
 import Pokeball from '../../img/Pokeball.png'
 import Welcome from '../../img/Welcome-Trainer.png'
+import { Modal, Button, ModalFooter, ModalBody } from 'reactstrap';
 
 
 export const LoginScreen = ({history}) => {
@@ -13,6 +14,7 @@ export const LoginScreen = ({history}) => {
 
   const [value, setvalue] = useState('')
   const [message, setMessage] = useState()
+  const [modal, setModal] = useState(false)
 
   const handleLogin = (value) => {
 
@@ -25,7 +27,16 @@ export const LoginScreen = ({history}) => {
       });
       history.replace('/');
     } 
-    setMessage('Please enter a name Trainer')
+    setMessage('Please enter a name Trainer');
+    showModal();
+  }
+
+  const showModal = () => {
+    setModal(true);
+  }
+
+  const closeModal = () => {
+    setModal(false);
   }
 
   return (
@@ -41,7 +52,9 @@ export const LoginScreen = ({history}) => {
         </div>
         <div className="welcome">
            <img
-            src={Welcome} />
+            src={Welcome}
+            alt="Welcome"
+          />
         </div>
       <hr />
 
@@ -64,9 +77,17 @@ export const LoginScreen = ({history}) => {
         </button>
       </div>
 
-      
+      <Modal isOpen={modal}>
+        <ModalBody>
+         {message}
+        </ModalBody>
 
-      {message}
+        <ModalFooter>
+          <Button color="danger" onClick={() =>{closeModal();}}>Close</Button>
+        </ModalFooter>
+      </Modal>
+
+      
       <div className="logos">
         <img height="50px" alt="logo"  src={WM2} />
         <div ><img height="50px" alt="logo"  src={WMonf} /></div>

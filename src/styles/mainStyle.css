@@ -81,7 +81,10 @@ body{
 .login-container{
   height: 100vh;
   background-image: url(../img/pokemon-background.jpg);
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .pokeball{
@@ -111,4 +114,18 @@ body{
   bottom: 0;
   right: 0;
   margin: 10px 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .welcome img {
+    width: 50vh;
+    margin: 1em 2em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .welcome img {
+    width: 20vh;
+    margin: 1em 2em;
+  }
 }
