@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../auth/AuthContext'
 import { types } from '../types/types'
+import YPoke from '../img/Y-pokeball.png'
+import Trainer from '../img/Trainer.png'
 
 export const NavBar = () => {
   const imgUrl ='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png'
@@ -22,12 +24,21 @@ export const NavBar = () => {
   return (
     <nav className="position-relative navMain" >
 
-    <span className="position-relative trainer top-50 translate-middle-x" >Trainner: {name}</span>
+      <img className="navMain-pokeball" alt="pokeball"
+        src={YPoke}
+      />
+
+      <span className="position-relative trainer" >
+        <img src={Trainer} alt="Trainer" /> 
+          <span>
+            {name}
+          </span>
+      </span>
   
       <img 
       src={imgUrl}
       alt='logo'
-      className="position-absolute mt-g-4 start-50 translate-middle-x"
+      className="position-absolute mt-4 start-50 translate-middle-x"
       width="160px"
       />
 

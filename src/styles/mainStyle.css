@@ -1,25 +1,43 @@
 * {
+  box-sizing: border-box;
   margin: 0px;
   padding: 0;
-  box-sizing: border-box;
 }
-
-body{
-  /* background-color: black; */
-}
-
-#root{
-  /* background-color: black; */
-}
-
 
 .navMain{
-  height: 100px;
+  background-image:url(../img/pokemon-background.jpg);
+  background-size: 60vh;
+  background-position: bottom;
+  height: 200px;
 }
+
+.navMain-pokeball{
+  height: 100px;
+  position: absolute;
+  top: 1rem;
+  left: 3rem;
+  opacity: .4;
+}
+
 
 .trainer{
   margin-left: 20px;
+  top: 7rem;
   color: blue;
+  display: flex;
+  /* height: 50px; */
+}
+
+.trainer img{
+  width: 5rem;
+  height: fit-content;
+  align-self: center;
+}
+.trainer span{
+  color:black;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.6rem;
+  text-decoration: underline;
 }
 
 .header{

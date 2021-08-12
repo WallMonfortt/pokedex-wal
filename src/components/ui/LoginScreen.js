@@ -5,7 +5,7 @@ import WM2 from '../../img/WM2.png'
 import WMonf from '../../img/WMonf.png'
 import Pokeball from '../../img/Pokeball.png'
 import Welcome from '../../img/Welcome-Trainer.png'
-import { Modal, Button, ModalFooter, ModalBody } from 'reactstrap';
+import { Modal, Button, ModalFooter, ModalHeader } from 'reactstrap';
 
 
 export const LoginScreen = ({history}) => {
@@ -61,6 +61,8 @@ export const LoginScreen = ({history}) => {
       <div className="welcome">
         <input 
           placeholder="Enter your name.." 
+          minLength={3}
+          maxLength={18}
           type="text"
           value={value}
           onChange={(e) => setvalue(e.target.value)} 
@@ -78,9 +80,9 @@ export const LoginScreen = ({history}) => {
       </div>
 
       <Modal isOpen={modal}>
-        <ModalBody>
+        <ModalHeader>
          {message}
-        </ModalBody>
+        </ModalHeader>
 
         <ModalFooter>
           <Button color="danger" onClick={() =>{closeModal();}}>Close</Button>
